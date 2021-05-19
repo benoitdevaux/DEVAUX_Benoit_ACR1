@@ -1,0 +1,48 @@
+html {
+  font-size: 62.5%;
+}
+
+.l-nav {
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.l-nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 0;
+}
+
+.l-nav__item {
+  margin-right: 1rem;
+  list-style: none;
+}
+
+.l-nav__link {
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.l-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+}
+
+.l-logo__text {
+  font-size: 3rem;
+  margin: auto 0;
+}
+
+.l-logo__img {
+  max-width: 25%;
+}
+/*# sourceMappingURL=main.css.map */

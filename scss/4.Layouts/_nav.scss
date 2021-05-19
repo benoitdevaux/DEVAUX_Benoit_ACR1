@@ -1,0 +1,21 @@
+.l-nav {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    &__list {
+        display: flex;
+        margin: auto 0;
+    }
+
+    &__item {
+        margin-right: 1rem;
+        list-style: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        padding: 1rem;
+    }
+}

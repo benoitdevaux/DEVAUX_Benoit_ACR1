@@ -1,0 +1,13 @@
+.l-logo {
+    display: flex;
+    text-decoration: none;
+    
+    &__text {
+        font-size: 3rem;
+        margin: auto 0;
+    }
+
+    &__img {
+        max-width: 25%;
+    }
+}
