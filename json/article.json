@@ -1,0 +1,32 @@
+[
+    {
+        "src": "./img/onsen.jpeg",
+        "title": "Les onsen",
+        "description": "Relaxer vous dans les onsen, ces sources thermales naturelles très ancrées dans la culture japonaise" 
+    }, 
+    {
+        "src": "./img/okinawa.jpg",
+        "title": "Okinawa",
+        "description": "Changez d'air, quittez la ville pour l'île paradisiaque d'Okinawa"
+    },
+    {
+        "src": "./img/nekocafe.jpg",
+        "title": "Neko Cafe",
+        "description": "Si vous êtes un(e) amoureux(se) des chats essayez les neko cafe pour profiter de la compagnie de ces félins"
+    },
+    {
+        "src": "./img/temple_articles.jpg",
+        "title": "Les temples",
+        "description": "Les temples japonais sont un point culminant de la culture japonaise"
+    },
+    {
+        "src": "./img/shibuya.jpg",
+        "title": "Shibuaya",
+        "description": "Le célèbre « Scramble Crossing » de la gare de Shibuya est sans aucun doute l’un des sites les plus emblématiques de Tokyo. En moyenne, en semaine, cette intersection très animée voit passer environ 2,8 millions de piétons. Oui, 2,8 millions de personnes par jour ! Plus que la population de Paris ! Si vous essayez de prendre le selfie parfait au milieu de la bousculade, assurez-vous quand même de passer de l’autre côté avant que les feux ne changent de couleur !"
+    },
+    {
+        "src": "./img/naoshima.jpg",
+        "title": "Naoshima",
+        "description": "Dépendant officiellement de la préfecture de Kagawa, Naoshima est une petite île de la mer intérieure de Seto. Bien qu’elle soit une belle escapade rustique de Tokyo, l’île est avant tout célèbre pour ses nombreux musées d’art moderne, son architecture et ses sculptures. Beaucoup de ces sites ont été pensés par le célèbre architecte Ando Tadao. Le musée d’art de Chichu, le musée Lee Ufan et la maison Benesse sont quelques endroits à ne pas manquer."
+    }
+]
