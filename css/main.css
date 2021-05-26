@@ -45,4 +45,30 @@ html {
 .l-logo__img {
   max-width: 25%;
 }
+
+.o-article {
+  width: 33.333%;
+  border: solid .2rem #3d3d3d;
+  border-radius: 1rem;
+  margin: 1rem;
+  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem rgba(61, 61, 61, 0.8);
+          box-shadow: 0.5rem 0.5rem 0.5rem rgba(61, 61, 61, 0.8);
+}
+
+.o-article::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.o-article__img {
+  width: 100%;
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.o-article__text {
+  margin: 1rem;
+}
 /*# sourceMappingURL=main.css.map */
