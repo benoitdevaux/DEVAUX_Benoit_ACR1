@@ -14,10 +14,11 @@ class SliderContent {
 }
 
 class Article {
-    constructor(img, title, description) {
+    constructor(img, title, description, teaser) {
         this.img = img;
         this.title = title;
         this.description = description;
+        this.teaser = teaser;
     }
 
     get getTitle() {
@@ -31,9 +32,14 @@ class Article {
     get getDescription() {
         return this.description;
     }
+    
+    get getTeaser() {
+        return this.teaser;
+    }
 }
 
 var imgTab = [];
+
 function loadImg() {
     $.ajax({
         dataType: 'json',
@@ -67,10 +73,19 @@ function loadArticle() {
                 articleTab.push(new Article(
                     item.src,
                     item.title,
-                    item.description
+                    item.description,
+                    item.teaser
                 ))
             })
             displayArticle(articleTab);
+
+            var $grid = $('.o-content').imagesLoaded( function() {
+                // init Masonry after all images have loaded
+                $grid.masonry({
+                    itemSelector: '.o-article',
+                    columnWidth: 100,
+                });
+              });
         }
     })
 }
@@ -86,8 +101,8 @@ function displayArticle(articleTab) {
         $(".o-content").append(
         "<article class='o-article'>"+
             "<img class='o-article__img' src='"+ article.getImg + "' alt='" + article.getTitle + "'/>"+
-            "<h2 class='o-article__title'>" + article.getTitle + "</h2>" +
-            "<p class='o-article__text'>" + article.getDescription + "</p>" +
+            "<h2 class='o-article__title'>" + article.getTitle + "</h2>"+
+            "<p class='o-article__text'>" +article.getTeaser + "</p>"+
         "</article>")
     })
 }
