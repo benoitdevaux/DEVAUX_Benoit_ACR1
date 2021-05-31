@@ -42,7 +42,7 @@ class Form {
     constructor(url) {
         this.url = url;
     }
-
+    
     get getUrl() {
         return this.url;
     }
@@ -72,63 +72,61 @@ function loadImg() {
         })
     }
     
-var articleTab = [];
-function loadArticle() {
-    $.ajax({
-        dataType: 'json',
-        type: 'GET',
-        url: './json/article.json',
-        success: function(json) {
-            json.forEach(function(item) {
-                articleTab.push(new Article(
-                    item.src,
-                    item.title,
-                    item.description,
-                    item.teaser
-                    ))
-                })
-                displayArticle(articleTab);
-                
-                var $grid = $('.o-content').imagesLoaded( function() {
-                    $grid.masonry({
-                        itemSelector: '.o-article',
-                        columnWidth: 100,
+    var articleTab = [];
+    function loadArticle() {
+        $.ajax({
+            dataType: 'json',
+            type: 'GET',
+            url: './json/article.json',
+            success: function(json) {
+                json.forEach(function(item) {
+                    articleTab.push(new Article(
+                        item.src,
+                        item.title,
+                        item.description,
+                        item.teaser
+                        ))
+                    })
+                    displayArticle(articleTab);
+                    
+                    var $grid = $('.o-content').imagesLoaded( function() {
+                        $grid.masonry({
+                            itemSelector: '.o-article',
+                            columnWidth: 100,
+                        });
                     });
-                });
-            }
-        })
-    }
-var urlForm = "";
-function loadUrl() {
-    $.ajax({
-        dataType: 'json',
-        type: 'GET',
-        url: './json/form.json',
-        success: function(json) {
-            urlForm = json.url;
-            console.log(json);
+                }
+            })
         }
-    })
-}
-
-function submitForm() {
-    $(".loading").show();
-    console.log(urlForm);
-    $.ajax({
-        dataType: "json",
-        type: "POST",
-        data: {email: $("#email").val(), message: $("#message").val()},
-        url: urlForm,
-        success: function(resp) {
-            $(".loading").hide();
-            $(".o-form__status").innerHTML = "Nous vous remercions pour votre avis";
-        }, 
-        error: function(result, statut, error) {
-            $(".loading").hide();
-            $(".o-form__status").innerHTML = "L'envoi de votre message a échoué";
+        var urlForm = "";
+        function loadUrl() {
+            $.ajax({
+                dataType: 'json',
+                type: 'GET',
+                url: './json/form.json',
+                success: function(json) {
+                    urlForm = json.url;
+                }
+            })
         }
-    })
-}        
+        
+        function submitForm() {
+            $(".loading").show();
+            $.ajax({
+                dataType: "json",
+                type: "POST",
+                data: {email: $("#email").val(), message: $("#message").val()},
+                url: urlForm,
+                success: function(resp) {
+                    $(".loading").hide();
+                    $(".o-form__status").text('Nous vous remercions pour votre avis');
+                }, 
+                error: function(result, statut, error) {
+                    $(".loading").hide();
+                    $(".o-form__status").text('L\'Envoi de votre message a échoué');
+                }
+            })
+        }        
         
         function displaySlides(imgTab) {
             imgTab.forEach(img => {
