@@ -3,11 +3,11 @@ class SliderContent {
         this.img = img;
         this.title = title;
     }
-
+    
     get getImg() {
         return this.img;
     }
-
+    
     get getTitle() {
         return this.title;
     }
@@ -20,21 +20,31 @@ class Article {
         this.description = description;
         this.teaser = teaser;
     }
-
+    
     get getTitle() {
         return this.title;
     }
-
+    
     get getImg() {
         return this.img;
     }
-
+    
     get getDescription() {
         return this.description;
     }
     
     get getTeaser() {
         return this.teaser;
+    }
+}
+
+class Form {
+    constructor(url) {
+        this.url = url;
+    }
+
+    get getUrl() {
+        return this.url;
     }
 }
 
@@ -50,18 +60,18 @@ function loadImg() {
                 imgTab.push(new SliderContent(
                     item.src,
                     item.title
-                ))
-            })
-            displaySlides(imgTab);
-            $('.o-slider').slick({
-                autoplay: true,
-                dots:true
-            });
-            
-        }
-    })
-}
-
+                    ))
+                })
+                displaySlides(imgTab);
+                $('.o-slider').slick({
+                    autoplay: true,
+                    dots:true
+                });
+                
+            }
+        })
+    }
+    
 var articleTab = [];
 function loadArticle() {
     $.ajax({
@@ -75,34 +85,64 @@ function loadArticle() {
                     item.title,
                     item.description,
                     item.teaser
-                ))
-            })
-            displayArticle(articleTab);
-
-            var $grid = $('.o-content').imagesLoaded( function() {
-                // init Masonry after all images have loaded
-                $grid.masonry({
-                    itemSelector: '.o-article',
-                    columnWidth: 100,
+                    ))
+                })
+                displayArticle(articleTab);
+                
+                var $grid = $('.o-content').imagesLoaded( function() {
+                    $grid.masonry({
+                        itemSelector: '.o-article',
+                        columnWidth: 100,
+                    });
                 });
-              });
+            }
+        })
+    }
+var urlForm = "";
+function loadUrl() {
+    $.ajax({
+        dataType: 'json',
+        type: 'GET',
+        url: './json/form.json',
+        success: function(json) {
+            urlForm = json.url;
+            console.log(json);
         }
     })
 }
 
-function displaySlides(imgTab) {
-    imgTab.forEach(img => {
-        $(".o-slider").append("<img src='"+ img.getImg + "' alt='" + img.getTitle + "'/>")
+function submitForm() {
+    $(".loading").show();
+    console.log(urlForm);
+    $.ajax({
+        dataType: "json",
+        type: "POST",
+        data: {email: $("#email").val(), message: $("#message").val()},
+        url: urlForm,
+        success: function(resp) {
+            $(".loading").hide();
+            $(".o-form__status").innerHTML = "Nous vous remercions pour votre avis";
+        }, 
+        error: function(result, statut, error) {
+            $(".loading").hide();
+            $(".o-form__status").innerHTML = "L'envoi de votre message a échoué";
+        }
     })
-}
-
-function displayArticle(articleTab) {
-    articleTab.forEach(article => {
-        $(".o-content").append(
-        "<article class='o-article'>"+
-            "<img class='o-article__img' src='"+ article.getImg + "' alt='" + article.getTitle + "'/>"+
-            "<h2 class='o-article__title'>" + article.getTitle + "</h2>"+
-            "<p class='o-article__text'>" +article.getTeaser + "</p>"+
-        "</article>")
-    })
-}
+}        
+        
+        function displaySlides(imgTab) {
+            imgTab.forEach(img => {
+                $(".o-slider").append("<img src='"+ img.getImg + "' alt='" + img.getTitle + "'/>")
+            })
+        }
+        
+        function displayArticle(articleTab) {
+            articleTab.forEach(article => {
+                $(".o-content").append(
+                    "<article class='o-article'>"+
+                    "<img class='o-article__img' src='"+ article.getImg + "' alt='" + article.getTitle + "'/>"+
+                    "<h2 class='o-article__title'>" + article.getTitle + "</h2>"+
+                    "<p class='o-article__text'>" +article.getTeaser + "</p>"+
+                    "</article>")
+                })
+            }
