@@ -3,7 +3,12 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+    background: $nav-background-color;
 
+    &--home {
+        margin-bottom: 0;
+    }
+    
     &__list {
         display: flex;
         margin: auto 0;
@@ -17,5 +22,8 @@
     &__link {
         text-decoration: none;
         padding: 1rem;
+        margin-right: 3rem;
+        color: $nav-text-color;
+        
     }
 }

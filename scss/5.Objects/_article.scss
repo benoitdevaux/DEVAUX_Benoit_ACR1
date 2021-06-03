@@ -1,10 +1,9 @@
 .o-article {
-    width: 33.333%;
-    border: solid .2rem #3d3d3d;
+    width: 30%;
     border-radius: 1rem;
-    margin: 1rem;
-    box-shadow: .5rem .5rem .5rem rgba(61,61,61,0.8);
-
+    margin: 2rem;
+    box-shadow: $box-shadow;
+    
     &::after{
         clear: both; 
         content: "";
@@ -12,6 +11,11 @@
     }
 
     
+    &__title {
+        font-size: $font-size-title;
+        margin: 1rem;
+    }
+
     &__img {
         width:100%;
         display: block;
@@ -20,6 +24,7 @@
     }
 
     &__text {
-        margin: 1rem;
+        margin-left: 1rem;
+        font-size: 1.6rem;
     }
 }

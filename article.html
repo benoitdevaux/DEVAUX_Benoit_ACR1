@@ -5,22 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Articles</title>
+    <link rel="stylesheet" type="text/css" href="css/uikit.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/lib/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="js/lib/masonry.pkgd.min.js"></script>
+    <script src="js/lib/uikit.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body onload="loadArticle()">
     <nav class="l-nav">
-        <a class="l-logo" href="index.html"><img class="l-logo__img" src="svg/pagoda.svg" alt="logo" /><h1 class="l-logo__text">日本<br />(Japon)</h1></h1></a>
+        <a class="l-logo uk-button-text" href="index.html"><h1 class="l-logo__text">日本</h1></a>
+        <div class="l-logo__background"></div>
         <ul class="l-nav__list">
-            <li class="l-nav__item"><a class="l-nav__link" href="article.html">Articles</a></li>
-            <li class="l-nav__item"><a class="l-nav__link" href="contact.html">Contact</a></li>
+            <li class="l-nav__item"><a class="l-nav__link uk-button-text" href="article.html">Articles</a></li>
+            <li class="l-nav__item"><a class="l-nav__link uk-button-text" href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <main>
-        <section class="o-content">
+        <section>
+            <div  class="o-content"></div>
         </section>
     </main>
 </body>

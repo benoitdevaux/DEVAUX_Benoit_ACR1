@@ -1,0 +1,38 @@
+.o-form {
+    font-size: $font-size-text;
+    display: flex;
+    margin-left: 1rem;
+    flex-direction: column;
+
+    &__title {
+        font-size: $font-size-title;
+        margin-bottom: 2rem;
+    }
+    
+    &__subtitle {
+        font-size: $font-size-subtitle;
+        margin-top: 0;
+    }
+
+    &__input {
+        max-width: 10%;
+        margin-bottom: 2rem;
+        border: none;
+        border-bottom: $border-bottom;
+
+        &:focus {
+            border-bottom: $border-bottom-thick;
+            outline:none;
+        }
+    }
+
+    &__loading {
+        margin-bottom: 2rem;
+    }
+
+    &__button {
+        max-width: 5%;
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+}

@@ -1,13 +1,31 @@
 .l-logo {
     display: flex;
     text-decoration: none;
-    
+    position: relative;
+    margin: 4rem;
+    padding-bottom: 1rem;
+    z-index: 1;
+
     &__text {
-        font-size: 3rem;
+        font-size: $font-size-title;
         margin: auto 0;
+        color: $nav-text-color;
+        border: none;
+        text-align: center;
     }
 
     &__img {
         max-width: 25%;
+    }
+
+    &__background {
+        position: absolute;
+        background: $logo-background-color;
+        height: 10rem;
+        width: 10rem;
+        border-radius: 9rem;
+        z-index: 0;
+        top: 1rem;
+        left: 2rem;
     }
 }

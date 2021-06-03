@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="css/uikit.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -13,20 +13,23 @@
 </head>
 <body onload="loadUrl()">
     <nav class="l-nav">
-        <a class="l-logo" href="index.html"><img class="l-logo__img" src="svg/pagoda.svg" alt="logo" /><h1 class="l-logo__text">日本<br />(Japon)</h1></h1></a>
+        <a class="l-logo uk-button-text" href="index.html"><h1 class="l-logo__text">日本</h1></a>
+        <div class="l-logo__background"></div>
         <ul class="l-nav__list">
-            <li class="l-nav__item"><a class="l-nav__link" href="article.html">Articles</a></li>
-            <li class="l-nav__item"><a class="l-nav__link" href="contact.html">Contact</a></li>
+            <li class="l-nav__item"><a class="l-nav__link uk-button-text" href="article.html">Articles</a></li>
+            <li class="l-nav__item"><a class="l-nav__link uk-button-text" href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <main>
-        <label class="o-form__label" for="email">E-mail</label>
-        <input id="email" class="o-form__input" type="email" name="email">
-        <label class="o-form__label" for="text">Votre message</label>
-        <textarea id="message" class="o-form__text" name="text"></textarea>
-        <button class="o-form__button" onclick="submitForm()">Envoyer</button>
-        <div uk-spinner class="loading" style="display: none;"></div>
-        <p class="o-form__status"></p>
+        <div class="o-form">
+            <h2 class="o-form__title">Contactez-nous</h2>
+            <h3 class="o-form__subtitle">Partagez-nous vos expériences en remplissante le formulaire ci-dessous</h3>
+            <input id="email" class="o-form__input" type="email" name="email" placeholder="E-mail">
+            <textarea id="message" class="o-form__input" name="text" placeholder="Saisissez votre message"></textarea>
+            <button class="o-form__button uk-button-secondary" onclick="submitForm()">Envoyer</button>
+            <div uk-spinner class="o-form__loading" style="display: none;"></div>
+            <p class="o-form__status"></p>
+        </div>
     </main>
 </body>
 </html>

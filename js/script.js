@@ -14,11 +14,10 @@ class SliderContent {
 }
 
 class Article {
-    constructor(img, title, description, teaser) {
+    constructor(img, title, description) {
         this.img = img;
         this.title = title;
         this.description = description;
-        this.teaser = teaser;
     }
     
     get getTitle() {
@@ -31,10 +30,6 @@ class Article {
     
     get getDescription() {
         return this.description;
-    }
-    
-    get getTeaser() {
-        return this.teaser;
     }
 }
 
@@ -83,8 +78,7 @@ function loadImg() {
                     articleTab.push(new Article(
                         item.src,
                         item.title,
-                        item.description,
-                        item.teaser
+                        item.description
                         ))
                     })
                     displayArticle(articleTab);
@@ -92,7 +86,7 @@ function loadImg() {
                     var $grid = $('.o-content').imagesLoaded( function() {
                         $grid.masonry({
                             itemSelector: '.o-article',
-                            columnWidth: 100,
+                            columnWidth: 1,
                         });
                     });
                 }
@@ -111,18 +105,18 @@ function loadImg() {
         }
         
         function submitForm() {
-            $(".loading").show();
+            $(".o-form__loading").show();
             $.ajax({
                 dataType: "json",
                 type: "POST",
                 data: {email: $("#email").val(), message: $("#message").val()},
                 url: urlForm,
                 success: function(resp) {
-                    $(".loading").hide();
+                    $(".o-form__loading").hide();
                     $(".o-form__status").text('Nous vous remercions pour votre avis');
                 }, 
                 error: function(result, statut, error) {
-                    $(".loading").hide();
+                    $(".o-form__loading").hide();
                     $(".o-form__status").text('L\'Envoi de votre message a échoué');
                 }
             })
@@ -136,11 +130,12 @@ function loadImg() {
         
         function displayArticle(articleTab) {
             articleTab.forEach(article => {
+                console.log(article.getTeaser);
                 $(".o-content").append(
-                    "<article class='o-article'>"+
+                    "<article class='o-article uk-animation-slide-bottom'>"+
                     "<img class='o-article__img' src='"+ article.getImg + "' alt='" + article.getTitle + "'/>"+
                     "<h2 class='o-article__title'>" + article.getTitle + "</h2>"+
-                    "<p class='o-article__text'>" +article.getTeaser + "</p>"+
+                    "<p class='o-article__text'>" + article.getDescription + "</p>"+
                     "</article>")
                 })
             }
