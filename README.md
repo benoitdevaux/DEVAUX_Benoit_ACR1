@@ -3,14 +3,15 @@ This project is an exercise realised for school. It have to contain a home page,
 
 ## Launch project
 Clone the project
-```git clone https://github.com/benoitdevaux/nihon-website.git```
+```
+git clone https://github.com/benoitdevaux/nihon-website.git
+```
 
 Launch the project thanks to a webserver (laragon, live server, etc.)
 
 ## Technologies
-- HTML
-- SCSS
-- UIKit
-- JQuery
-- Masonry
-- Slick
+- [SASS](https://sass-lang.com/)
+- [UIKit](https://getuikit.com/)
+- [jQuery](https://jquery.com/)
+- [Masonry](https://masonry.desandro.com/)
+- [Slick](https://kenwheeler.github.io/slick/)
